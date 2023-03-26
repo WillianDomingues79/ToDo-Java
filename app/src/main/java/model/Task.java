@@ -26,6 +26,12 @@ public class Task {
         this.updatedAt = updatedAt;
     }
     
+    //Construtor para criar a data automaticamente, sem necessidade de setar
+    public Task(){
+        this.createdAt = new Date();
+        this.updatedAt = new Date();
+    }
+    
     //GETTERS AND SETTERS
     public int getId() {
         return id;

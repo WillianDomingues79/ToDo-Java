@@ -9,6 +9,7 @@ public class Project {
     private Date createdAt;
     private Date updatedAt;
 
+    
     //CONSTRUTOR
     public Project(int id, String name, String description, Date createdAt, Date updatedAt) {
         this.id = id;
@@ -16,6 +17,11 @@ public class Project {
         this.description = description;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
+    }
+    
+    public Project(){
+        this.createdAt = new Date();
+        this.updatedAt = new Date();
     }
 
     //GETTERS AND SETTERS
@@ -64,7 +70,5 @@ public class Project {
     public String toString() {
         return "Project{" + "id=" + id + ", name=" + name + ", description=" + description + ", createdAt=" + createdAt + ", updatedAt=" + updatedAt + '}';
     }
-    
-    
-    
+        
 }
