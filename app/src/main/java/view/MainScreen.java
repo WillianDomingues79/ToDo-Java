@@ -14,6 +14,8 @@ import java.util.List;
 import javax.swing.DefaultListModel;
 import model.Project;
 import model.Task;
+import util.ButtonColumnCellRenderer;
+import util.DeadlineClumnCellRenderer;
 import util.TaskTableModel;
 
 /**
@@ -30,10 +32,12 @@ public class MainScreen extends javax.swing.JFrame {
     
     public MainScreen() {
         initComponents();
-        decorateTableTask();
+        
         
         initDataController();
         initComponentsModel();
+        
+        decorateTableTask();
         
     }
 
@@ -440,12 +444,20 @@ public class MainScreen extends javax.swing.JFrame {
     
     //Muda cor da tabela
     public void decorateTableTask(){
-        //Customizando header da table de tarefas
+        //Customizando header da table de tarefas SELECIONADA
         jTableTasks.getTableHeader().setFont(new Font("Segoe UI", Font.BOLD, 14));
         jTableTasks.getTableHeader().setBackground(new Color(0,153,102));
         jTableTasks.getTableHeader().setForeground(new Color(255,255,255));
+        
+        //Customização da coluna PRAZO
+        jTableTasks.getColumnModel().getColumn(2).setCellRenderer(new DeadlineClumnCellRenderer());
+        
+        //Customização dos botões EDITAR E EXCLUIR
+        jTableTasks.getColumnModel().getColumn(4).setCellRenderer(new ButtonColumnCellRenderer("edit"));
+        jTableTasks.getColumnModel().getColumn(5).setCellRenderer(new ButtonColumnCellRenderer("delete"));
+        
         //Criando sort automatico para as colunas da table
-        jTableTasks.setAutoCreateRowSorter(true);
+        //jTableTasks.setAutoCreateRowSorter(true);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
